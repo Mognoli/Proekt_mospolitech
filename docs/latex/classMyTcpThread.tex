@@ -1,0 +1,101 @@
+\hypertarget{classMyTcpThread}{}\doxysection{My\+Tcp\+Thread Class Reference}
+\label{classMyTcpThread}\index{MyTcpThread@{MyTcpThread}}
+
+
+\mbox{\hyperlink{classMyTcpThread}{My\+Tcp\+Thread}} -\/ класс, описывающий работу с потоками, в которых происходит взаимодействие с подключаемыми клиентами  
+
+
+
+
+{\ttfamily \#include $<$mytcpthread.\+h$>$}
+
+Inheritance diagram for My\+Tcp\+Thread\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classMyTcpThread}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classMyTcpThread_a17fedba795d6dd073bb350c56fb771c2}{ready\+Read}} ()
+\begin{DoxyCompactList}\small\item\em ready\+Read -\/ слот, связанный с нативным сигналом ready\+Read \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMyTcpThread_a0aee2742ec4740c922981dc5df7d9de3}{disconnected}} ()
+\begin{DoxyCompactList}\small\item\em disconnected -\/ слот, связанный с нативным сигналом disconnected \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMyTcpThread_a98073f3231bb8e5523b2883c46a8ea45}{My\+Tcp\+Thread}} (qintptr thread\+Desc, QObject $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classMyTcpThread}{My\+Tcp\+Thread}} -\/ конструктор класса \mbox{\hyperlink{classMyTcpThread}{My\+Tcp\+Thread}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classMyTcpThread_abf4ea21fd0d794dfbe678ff2c5244bb6}{run}} ()
+\begin{DoxyCompactList}\small\item\em run -\/ виртуальная функция класса QThread \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classMyTcpThread}{My\+Tcp\+Thread}} -\/ класс, описывающий работу с потоками, в которых происходит взаимодействие с подключаемыми клиентами 
+
+Класс \mbox{\hyperlink{classMyTcpThread}{My\+Tcp\+Thread}} используется для создания инстанций QThread для каждого подключаемого к серверу клиента и взаимодействия с каждым отдельным клиентом в отдельном потоке 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMyTcpThread_a98073f3231bb8e5523b2883c46a8ea45}\label{classMyTcpThread_a98073f3231bb8e5523b2883c46a8ea45}} 
+\index{MyTcpThread@{MyTcpThread}!MyTcpThread@{MyTcpThread}}
+\index{MyTcpThread@{MyTcpThread}!MyTcpThread@{MyTcpThread}}
+\doxysubsubsection{\texorpdfstring{MyTcpThread()}{MyTcpThread()}}
+{\footnotesize\ttfamily My\+Tcp\+Thread\+::\+My\+Tcp\+Thread (\begin{DoxyParamCaption}\item[{qintptr}]{thread\+Desc,  }\item[{QObject $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\mbox{\hyperlink{classMyTcpThread}{My\+Tcp\+Thread}} -\/ конструктор класса \mbox{\hyperlink{classMyTcpThread}{My\+Tcp\+Thread}}. 
+
+Создает объект \mbox{\hyperlink{classMyTcpThread}{My\+Tcp\+Thread}} и сохраняет автогенерируемый дескриптор 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em thread\+Desc} & -\/ автогенерируемый дескриптор, полученный от incoming\+Connection() \\
+\hline
+\mbox{\texttt{ in}}  & {\em parent} & -\/ родительский объект \mbox{\hyperlink{classMyTcpServer}{My\+Tcp\+Server}} \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMyTcpThread_a0aee2742ec4740c922981dc5df7d9de3}\label{classMyTcpThread_a0aee2742ec4740c922981dc5df7d9de3}} 
+\index{MyTcpThread@{MyTcpThread}!disconnected@{disconnected}}
+\index{disconnected@{disconnected}!MyTcpThread@{MyTcpThread}}
+\doxysubsubsection{\texorpdfstring{disconnected}{disconnected}}
+{\footnotesize\ttfamily void My\+Tcp\+Thread\+::disconnected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+disconnected -\/ слот, связанный с нативным сигналом disconnected 
+
+Вызывается при сигнале disconnected (разрыве соединения между клиентом и сервером). Уничтожает сокет клиента и завершает event loop \mbox{\Hypertarget{classMyTcpThread_a17fedba795d6dd073bb350c56fb771c2}\label{classMyTcpThread_a17fedba795d6dd073bb350c56fb771c2}} 
+\index{MyTcpThread@{MyTcpThread}!readyRead@{readyRead}}
+\index{readyRead@{readyRead}!MyTcpThread@{MyTcpThread}}
+\doxysubsubsection{\texorpdfstring{readyRead}{readyRead}}
+{\footnotesize\ttfamily void My\+Tcp\+Thread\+::ready\+Read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+ready\+Read -\/ слот, связанный с нативным сигналом ready\+Read 
+
+Вызывается при сигнале ready\+Read (приеме сообщения от клиента), считывает ввод клиента и передает в \mbox{\hyperlink{functionsforserver_8cpp_a85632546b5facb33eadf9b801c8e1750}{parsing()}} с последующей отправкой ответа сервера клиенту \begin{DoxyWarning}{Warning}
+Работает некорректно с telnet клиентом Pu\+TTY 
+\end{DoxyWarning}
+\mbox{\Hypertarget{classMyTcpThread_abf4ea21fd0d794dfbe678ff2c5244bb6}\label{classMyTcpThread_abf4ea21fd0d794dfbe678ff2c5244bb6}} 
+\index{MyTcpThread@{MyTcpThread}!run@{run}}
+\index{run@{run}!MyTcpThread@{MyTcpThread}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void My\+Tcp\+Thread\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+run -\/ виртуальная функция класса QThread 
+
+Вызывается после вызова метода start() объекта класса \mbox{\hyperlink{classMyTcpThread}{My\+Tcp\+Thread}}. Создает новый поток с event loop и сокет клиента. Назначает сокету дескриптор socket\+Descriptor (class member) и создает подключение между сигналами клиента и соответствующими слотами сервера 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{mytcpthread_8h}{mytcpthread.\+h}}\item 
+\mbox{\hyperlink{mytcpthread_8cpp}{mytcpthread.\+cpp}}\end{DoxyCompactItemize}

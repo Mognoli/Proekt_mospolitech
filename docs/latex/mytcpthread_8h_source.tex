@@ -1,0 +1,33 @@
+\hypertarget{mytcpthread_8h_source}{}\doxysection{mytcpthread.\+h}
+\mbox{\hyperlink{mytcpthread_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#ifndef MYTCPTHREAD\_H}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#define MYTCPTHREAD\_H}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <QThread>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <QObject>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <QTcpSocket>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <QDebug>}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{18 \textcolor{keyword}{class }\mbox{\hyperlink{classMyTcpThread}{MyTcpThread}} : \textcolor{keyword}{public} QThread}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20         Q\_OBJECT}
+\DoxyCodeLine{21 \textcolor{keyword}{public}:}
+\DoxyCodeLine{28     \textcolor{keyword}{explicit} \mbox{\hyperlink{classMyTcpThread_a98073f3231bb8e5523b2883c46a8ea45}{MyTcpThread}}(qintptr threadDesc, QObject *parent = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{29     \mbox{\hyperlink{classMyTcpThread}{\string~MyTcpThread}}();}
+\DoxyCodeLine{30     \textcolor{keyword}{public} slots:}
+\DoxyCodeLine{36         \textcolor{keywordtype}{void} \mbox{\hyperlink{classMyTcpThread_a17fedba795d6dd073bb350c56fb771c2}{readyRead}}();}
+\DoxyCodeLine{41         \textcolor{keywordtype}{void} \mbox{\hyperlink{classMyTcpThread_a0aee2742ec4740c922981dc5df7d9de3}{disconnected}}();}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{48        \textcolor{keywordtype}{void} \mbox{\hyperlink{classMyTcpThread_abf4ea21fd0d794dfbe678ff2c5244bb6}{run}}();}
+\DoxyCodeLine{49 \textcolor{keyword}{private}:}
+\DoxyCodeLine{50        QTcpSocket *socket; }
+\DoxyCodeLine{51        qintptr socketDescriptor; }
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \};}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// MYTCPTHREAD\_H}}
+
+\end{DoxyCode}

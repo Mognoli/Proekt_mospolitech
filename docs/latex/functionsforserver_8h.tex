@@ -1,0 +1,95 @@
+\hypertarget{functionsforserver_8h}{}\doxysection{functionsforserver.\+h File Reference}
+\label{functionsforserver_8h}\index{functionsforserver.h@{functionsforserver.h}}
+
+
+Заголовочный файл, определяющий функции сервера для взаимодействия с клиентом  
+
+
+{\ttfamily \#include $<$QString$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+QByte\+Array \mbox{\hyperlink{functionsforserver_8h_a384a0c7438f42edb2f384963096715bb}{parsing}} (QString data\+\_\+from\+\_\+client, qintptr socket\+Descriptor)
+\begin{DoxyCompactList}\small\item\em parsing -\/ функция, выполняющая парсинг сообщений со стороны клиента. Данная функция выделяет команды, параметры и аргументы из строки клиента и вызывает соответствующие функции, передавая в них параметры, полученные от клиента. \end{DoxyCompactList}\item 
+QByte\+Array \mbox{\hyperlink{functionsforserver_8h_a7247a7e04dc1e3a842343f0d879b4df5}{auth}} (QString login, QString password, qintptr socket\+Descriptor)
+\begin{DoxyCompactList}\small\item\em auth -\/ функция, выполняющая \mbox{[}проверку существования аккаунта\mbox{]} и аутентификацию пользователя \end{DoxyCompactList}\item 
+QByte\+Array \mbox{\hyperlink{functionsforserver_8h_a38d87a7e02adf3da13f5636f3552164f}{reg}} (QString login, QString password, QString email, qintptr socket\+Descriptor)
+\begin{DoxyCompactList}\small\item\em reg -\/ функция, выполняющая \mbox{[}проверку существования аккаунта\mbox{]} и регистрацию пользователя \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Заголовочный файл, определяющий функции сервера для взаимодействия с клиентом 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{functionsforserver_8h_a7247a7e04dc1e3a842343f0d879b4df5}\label{functionsforserver_8h_a7247a7e04dc1e3a842343f0d879b4df5}} 
+\index{functionsforserver.h@{functionsforserver.h}!auth@{auth}}
+\index{auth@{auth}!functionsforserver.h@{functionsforserver.h}}
+\doxysubsubsection{\texorpdfstring{auth()}{auth()}}
+{\footnotesize\ttfamily QByte\+Array auth (\begin{DoxyParamCaption}\item[{QString}]{login,  }\item[{QString}]{password,  }\item[{qintptr}]{socket\+Descriptor }\end{DoxyParamCaption})}
+
+
+
+auth -\/ функция, выполняющая \mbox{[}проверку существования аккаунта\mbox{]} и аутентификацию пользователя 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em login} & -\/ логин, полученный из строки сообщения пользователя \\
+\hline
+\mbox{\texttt{ in}}  & {\em password} & -\/ пароль, полученный из строки сообщения пользователя \\
+\hline
+\mbox{\texttt{ in}}  & {\em socket\+Descriptor} & -\/ дескриптор сокета клиента, совершающего аутентификацию \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Возвращает сообщение с результатом аутентификации пользователя 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functionsforserver_8h_a384a0c7438f42edb2f384963096715bb}\label{functionsforserver_8h_a384a0c7438f42edb2f384963096715bb}} 
+\index{functionsforserver.h@{functionsforserver.h}!parsing@{parsing}}
+\index{parsing@{parsing}!functionsforserver.h@{functionsforserver.h}}
+\doxysubsubsection{\texorpdfstring{parsing()}{parsing()}}
+{\footnotesize\ttfamily QByte\+Array parsing (\begin{DoxyParamCaption}\item[{QString}]{data\+\_\+from\+\_\+client,  }\item[{qintptr}]{socket\+Descriptor }\end{DoxyParamCaption})}
+
+
+
+parsing -\/ функция, выполняющая парсинг сообщений со стороны клиента. Данная функция выделяет команды, параметры и аргументы из строки клиента и вызывает соответствующие функции, передавая в них параметры, полученные от клиента. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em command} & -\/ строка, содержащая сообщение, отправленное клиентом \\
+\hline
+\mbox{\texttt{ in}}  & {\em socket\+Descriptor} & -\/ дескриптор сокета клиента, от которого было получено сообщение \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Возвращает результат работы функции, вызываемой клиентом 
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000001}{Todo}}]Обработка исключений Qt, не поддерживаемая использованием try/catch 
+
+Замена дерева if/else более эффективным методом проверки комманд \end{DoxyRefDesc}
+\mbox{\Hypertarget{functionsforserver_8h_a38d87a7e02adf3da13f5636f3552164f}\label{functionsforserver_8h_a38d87a7e02adf3da13f5636f3552164f}} 
+\index{functionsforserver.h@{functionsforserver.h}!reg@{reg}}
+\index{reg@{reg}!functionsforserver.h@{functionsforserver.h}}
+\doxysubsubsection{\texorpdfstring{reg()}{reg()}}
+{\footnotesize\ttfamily QByte\+Array reg (\begin{DoxyParamCaption}\item[{QString}]{login,  }\item[{QString}]{password,  }\item[{QString}]{email,  }\item[{qintptr}]{socket\+Descriptor }\end{DoxyParamCaption})}
+
+
+
+reg -\/ функция, выполняющая \mbox{[}проверку существования аккаунта\mbox{]} и регистрацию пользователя 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em login} & -\/ создаваемый логин, полученный из строки сообщения пользователя \\
+\hline
+\mbox{\texttt{ in}}  & {\em password} & -\/ создаваемый пароль, полученный из строки сообщения пользователя \\
+\hline
+\mbox{\texttt{ in}}  & {\em email} & -\/ электронная почта, полученная из строки сообщения пользователя \\
+\hline
+\mbox{\texttt{ in}}  & {\em socket\+Descriptor} & -\/ дескриптор сокета клиента, совершающего регистрацию \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Возвращает сообщение с результатом регистрации пользователя 
+\end{DoxyReturn}
