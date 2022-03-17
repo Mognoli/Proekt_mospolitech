@@ -1,5 +1,16 @@
+/*!
+ * \file
+ * \brief Файл, содержащий имплементацию методов класса MyTcpThread
+ */
+
 #include "mytcpthread.h"
 #include "functionsforserver.h"
+
+MyTcpThread::~MyTcpThread() {
+    requestInterruption();
+    wait();
+    if (DEBUG_ENV) qDebug() << "Thread instance terminated: client " << this->socketDescriptor;
+}
 
 MyTcpThread::MyTcpThread(qintptr threadDesc, QObject *parent) : QThread{parent} {
     this->socketDescriptor = threadDesc;
@@ -14,7 +25,7 @@ void MyTcpThread::run() {
     connect(socket, SIGNAL(readyRead()), this, SLOT(readyRead()), Qt::DirectConnection);
     connect(socket, SIGNAL(disconnected()), this, SLOT(disconnected()));
 
-    qDebug() << "Client connected, descriptor: " << this->socketDescriptor;
+    if (DEBUG_ENV) qDebug() << "Client connected, descriptor: " << this->socketDescriptor;
 
     exec();
 }
@@ -23,19 +34,16 @@ void MyTcpThread::run() {
 void MyTcpThread::readyRead() {
     if (socket->bytesAvailable()>0) {
         QByteArray command = socket->readAll();
-        if (command.length() > 0) socket->write(parsing(command, socket->socketDescriptor()));
+        if (command.length() > 0) {
+            socket->write(parsing(command, socket->socketDescriptor()));
+            if (DEBUG_ENV) qDebug() << "Client " << socket->socketDescriptor() << " sent message: " << command;
+        }
     }
-
-//    QString array="";
-//    array=socket->readAll();
-//    QByteArray mas=array.toLocal8Bit();
-//    socket->write(parsing(mas, socket->socketDescriptor()));
 }
 
 void MyTcpThread::disconnected() {
-    qDebug() << "Client disconnected, descriptor: " << this->socketDescriptor;
+    if (DEBUG_ENV) qDebug() << "Client disconnected, descriptor: " << this->socketDescriptor;
 
-    // place socket deletion in queue, exit thread
     socket->deleteLater();
     exit(0);
     // remove socketDescriptor from "logged in users" table in database (?)

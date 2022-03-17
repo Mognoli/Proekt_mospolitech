@@ -1,7 +1,11 @@
+/*!
+ * \file
+ * \brief Файл с имплементацией функций, заданных в functionsforserver.h
+ */
+
 #include "functionsforserver.h"
 #include <QString>
 #include <QStringList>
-
 
 
 
@@ -10,8 +14,6 @@ QByteArray parsing (QString command, qintptr socketDescriptor) {
         QString function = parameters.at(0);
         parameters.pop_front();
 
-        // try/catch doesnt work with QT exceptions???
-        // todo: catch exceptions, replace if/else tree, validate passed parameters;
         if (function == "auth") {
             if (parameters.length() == 2) return auth(parameters.at(0), parameters.at(1), socketDescriptor);
             else return "Wrong parameters amount (Need 2). Check 'auth' documentation.\n";
@@ -22,6 +24,7 @@ QByteArray parsing (QString command, qintptr socketDescriptor) {
         }
         else return "Wrong syntax. Check for available commands.\n";
 }
+
 
 QByteArray auth(QString login, QString password, qintptr socketDescriptor)
 {

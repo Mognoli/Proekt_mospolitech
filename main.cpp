@@ -1,3 +1,7 @@
+/*!
+ * \file
+ */
+
 #include <QCoreApplication>
 #include "mytcpserver.h"
 
