@@ -5,7 +5,7 @@
 
 #include "functionsforserver.h"
 
-
+#include "DataBase.h"
 
 QByteArray parsing (QString command, qintptr socketDescriptor) {
         QStringList parameters = command.split(QLatin1Char(' '));
@@ -30,8 +30,12 @@ QByteArray auth(QString login, QString password, qintptr socketDescriptor)
 
     // check for user in database; if exist:
     // push socketDescriptor in database in "logged in users" table (?)
+    password.remove(password.size()-2,2);
+    qDebug()<<password<<"\n";
     QByteArray result = "";
-    //result.append(DataBase::TestLogAndPas(login, password).toUtf8());
+    DataBase::getInstance();
+    result.append(DataBase::TestLogAndPas(login, password).toUtf8());
+    DataBase::closeDB();
     return result;
     // else return message "unable to log in"
 }
@@ -43,6 +47,7 @@ QByteArray reg(QString login, QString password, QString email, qintptr socketDes
     // check for user in database; if not exist:
     // push parameters in "users" table; call "auth" func
     QByteArray result="xzcv";
+    DataBase::getInstance();
 //    result += DataBase::AddLogAndPas(login, password, email);
     return result;
     // else return message "user already exist/not valid parameters"

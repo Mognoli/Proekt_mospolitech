@@ -7,7 +7,7 @@
 #define MYTCPSERVER_H
 
 #include "mytcpthread.h"
-#include "DataBase.h"
+//#include "DataBase.h"
 #include <QObject>
 #include <QTcpServer>
 #include <QtNetwork>
