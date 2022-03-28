@@ -1,1 +1,0 @@
-# Proekt_mospolitech
