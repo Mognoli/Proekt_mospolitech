@@ -6,18 +6,20 @@
 
 ## Usage
 ---
+### Building image:
+
 >$ `git clone --branch docker https://github.com/Mognoli/Proekt_mospolitech`
 
 >$ `cd Proekt_mospolitech`
 
-Введите логин и пароль вашего аккаунта QT в `/resources/auth`
+Введите логин и пароль вашего аккаунта Qt в `/resources/auth` (необходимо для установки Qt)
 
 >$ `docker build -t mosp-proj-app .`
 
 >$ `docker run mosp-proj-app`
 
 ---
-### Use image from DockerHub:
+### Using image from DockerHub:
 
 >$ `docker pull lixxteq/mosp-proj-app`
 
