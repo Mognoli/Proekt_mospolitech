@@ -1,0 +1,17 @@
+#!/bin/sh
+
+echo QT downloading started
+
+INSTALLER=qt-opensource-linux-x64-5.9.4.run
+
+# устанавливаемые компоненты QT 
+export QT_CI_PACKAGES="qt.594.gcc_64,qt.594.qtwebengine" 
+
+wget https://download.qt.io/archive/qt/5.9/5.9.4/qt-opensource-linux-x64-5.9.4.run
+echo QT downloaded
+
+# скрипт для установки QT без дисплейного сервера
+bash extract-qt-installer $PWD/$INSTALLER $PWD/Qt
+
+# добавляет QT в $PATH
+export PATH=$PWD/Qt/5.9.4/gcc_64/bin:$PATH
