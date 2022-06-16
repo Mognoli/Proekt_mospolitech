@@ -1,59 +1,11 @@
 #include <QCoreApplication>
 #include <iostream>
 #include <string>
+#include "f1f.h"
 
-void F1 (int *x, int *y, char z, int *q){
-    int i;
-    if (z=='+'){
-        for (i=0; i<8; i++){
-            if (x[i] || y[i])
-                q[i]=1;
-            else
-                q[i]=0;
-        }
-    }
-    else {
-        for (i=0; i<8; i++){
-            if (x[i] && y[i])
-                q[i]=1;
-            else
-                q[i]=0;
-        }
 
-    }
-    return;
-};
 
-void V (char x, int* r){
-    int i;
-    switch (x) {
-    case 'a':{
-        for (i=0; i<4; i++){
-            r[i]=0;
-            r[i+4]=1;
-        }
-        break;
-    }
-    case 'b':{
-        //r=new int [8] {0, 0, 1, 1, 0, 0, 1, 1};
-        for (i=0; i<8; i+=4){
-            for (int j=0; j<2; j++){
-            r[i+j]=0;
-            r[i+2+j]=1;
-            }
-        }
-        break;
-    }
-    default:{
-        for (i=0; i<8; i+=2){
-            r[i]=0;
-            r[i+1]=1;
-        }
-        break;
-    }
-    }
-    return;
-};
+
 
 int main(){
     int i, e=0;;
@@ -67,24 +19,25 @@ int main(){
         s.push_back(char(rand()%2+42));
     s.push_back(char(rand()%3+97));
     std::cout<<s <<std::endl;
-    int *r, *R, *Q, *q;
-    r=new int [8];
+    //int *r, *R, *Q, *q;
+    F1F r, R, Q, q;
+    /*r=new int [8];
     R=new int [8];
     Q=new int [8];
-    q=new int [8];
-    V(s[0], r);
-    V(s[2], R);
-    F1(r, R, s[1], Q);
-    V(s[4], r);
-    V(s[6], R);
-    F1(r, R, s[5], q);
-    F1(Q, q, s[3], Q);
+    q=new int [8];*/
+    r.V(s[0]);
+    R.V(s[2]);
+    Q.F1(r, R, s[1]);
+    r.V(s[4]);
+    R.V(s[6]);
+    q.F1(r, R, s[5]);
+    Q.F1(Q, q, s[3]);
     for (i=0; i<8; i++){
-        if(Q[i])
+        if(Q.m[i])
             e++;
         else
             e--;
-        std::cout<<Q[i] <<' ';
+        std::cout<<Q.m[i] <<' ';
 
     }
      std::cout<<std::endl;
@@ -104,8 +57,8 @@ int main(){
          break;
      }
      }
-    delete []q;
+    /*delete []q;
     delete []Q;
     delete []r;
-    delete []R;
+    delete []R;*/
 }
