@@ -9,6 +9,7 @@
 #include <random>
 #include <map>
 #include <list>
+#include <set>
 
 class Task5 {
 
@@ -22,7 +23,7 @@ class Task5 {
         std::vector<std::string> polinom;
         std::vector<std::vector<int>> table;
         std::vector<std::vector<std::string>> groups;
-        std::list<std::string> answer;
+        std::set<std::set<std::string>> answer;
 
     public:
         Task5(std::string func);
@@ -32,6 +33,7 @@ class Task5 {
         void generateTask(const int n);
         void solveTask();
         void assignAndPrintPolinom();
+        std::set<std::set<std::string>> getAnswer();
 
     private:
         void calcSdnfSknf();

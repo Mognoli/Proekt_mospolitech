@@ -1,6 +1,6 @@
-make -C /home/roman/Documents/C++ workspace/server/tasks/build --dry-run --always-make --keep-going --print-directory
-make: Entering directory '/home/roman/Documents/C++ workspace/server/tasks/build'
-make: Leaving directory '/home/roman/Documents/C++ workspace/server/tasks/build'
+make -C /home/roman/Documents/C++ workspace/Proekt_mospolitech/Zad_Z_R/build --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/roman/Documents/C++ workspace/Proekt_mospolitech/Zad_Z_R'
+make: Leaving directory '/home/roman/Documents/C++ workspace/Proekt_mospolitech/Zad_Z_R'
  
-make: *** No targets specified and no makefile found.  Stop.
+make: *** /home/roman/Documents/C++ workspace/Proekt_mospolitech/Zad_Z_R/build: No such file or directory.  Stop.
 

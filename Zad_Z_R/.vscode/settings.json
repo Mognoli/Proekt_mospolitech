@@ -88,6 +88,8 @@
         "utility": "cpp",
         "valarray": "cpp",
         "variant": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "iterator": "cpp",
+        "random": "cpp"
     }
 }

@@ -288,33 +288,40 @@ void Task5::assignAndPrintPolinom() {
     nrs[0] = "-x";
     nrs[1] = "-y";
     nrs[2] = "-z";
-    string pretty = "";
+    set<set<string>> pretty;
     for (auto el : polinom) {
-        int counter = 0;
+        set<string> temp;
         for (auto e : el) {
             // cout << monoms[e-'0'] << '\t';
+            string tempstr;
             string m = monoms[e-'0'];
             
             for (int i = 0; i < m.size(); i++) {
                 switch (m[i]) {
                     case '0':
                         // cout << nrs[i];
-                        pretty.append(nrs[i]);
+                        tempstr.append(nrs[i]);
                         break;
                     case '1':
                         // cout << prs[i];
-                        pretty += prs[i];
+                        tempstr += prs[i];
                         break;
                     default:
                         break;
                 }
             }
-            // cout << " v ";
-            pretty.append(" v ");
+            // tempstr.append(" v ");
+            temp.insert(tempstr);
         }
-        pretty.erase(pretty.end()-3, pretty.end());
-        cout << pretty;
-        this->answer.push_back(pretty);
-        cout << endl;
+        pretty.insert(temp);
+        // pretty.erase(pretty.end()-3, pretty.end());
+        // cout << pretty;
+        // this->answer.push_back(pretty);
+        // cout << endl;
     }
+    this->answer = pretty;
+}
+
+std::set<std::set<std::string>> Task5::getAnswer() {
+    return this->answer;
 }
